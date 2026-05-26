@@ -1,0 +1,104 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Page.astro';
+import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
+import TextAndMediaSection from '../components/sections/TextAndMediaSection.astro';
+import TextSection from '../components/sections/TextSection.astro';
+import FeatureCardsSection from '../components/sections/FeatureCardsSection.astro';
+import BlogPostsSection from '../components/sections/BlogPostsSection.astro';
+import GetStartedSection from '../components/sections/GetStartedSection.astro';
+
+const posts = (await getCollection('blog')).slice(0, 3);
+
+const seo = {
+  title: 'Bay Collective — Live Bay Area Music',
+  description:
+    'Real music, real venues. A crew of 15+ Bay Area musicians doing 2–4 live shows a week, from Pleasanton to SF. Every show gives back to charity.',
+};
+---
+
+<Layout seo={seo}>
+  <HomeHeroSection
+    tagline="Live Bay Area Music"
+    title="Live. Local. Loud."
+    text="A crew of 15+ musicians bringing live shows to restaurants, plazas, and anywhere people gather — growing from Pleasanton to a full Bay Area circuit. Every show donates a % to charity."
+    primaryCta={{ text: 'Book a Show', href: '/contact' }}
+    secondaryCta={{ text: 'Meet the Roster', href: '/roster' }}
+    image={{
+      src: '/images/hero-stage.jpg',
+      alt: 'Bay Collective performing live',
+    }}
+  />
+
+  <TextSection narrow>
+    <h2>Music with a mission.</h2>
+    <p>
+      We're a Bay Area live music collective — students, friends, and musicians who want to play
+      real shows for real people. 2–4 gigs a week, starting on home turf in Pleasanton, Dublin,
+      and Livermore, then expanding to Oakland, Berkeley, SF, Marin, and beyond.
+    </p>
+    <p>
+      Every show donates a portion of proceeds to a cause we care about. Good music doing good things.
+    </p>
+  </TextSection>
+
+  <FeatureCardsSection
+    title="What We Do"
+    cards={[
+      {
+        title: 'Live Performances',
+        text: '2–4 shows per week at restaurants, downtown locations, and high foot-traffic venues across the Bay Area. Flexible configurations for any space.',
+        icon: 'ic:round-music-note',
+      },
+      {
+        title: 'Full-Spectrum Sound',
+        text: 'Bass, guitar, drums, keys, sax, trumpet, and vocals — 15+ musicians ready to configure the right lineup for your venue.',
+        icon: 'ic:round-queue-music',
+      },
+      {
+        title: 'Give Back',
+        text: 'A percentage of every show\'s revenue goes to charity. We handle the finances transparently — tracked statements, documented donations, full legal compliance.',
+        icon: 'ic:round-volunteer-activism',
+      },
+      {
+        title: 'Full Ops',
+        text: 'Internal outreach, logistics, marketing, and finance team. We handle everything from scouting venues to sending invoices.',
+        icon: 'ic:round-manage-accounts',
+      },
+    ]}
+  />
+
+  <TextAndMediaSection
+    title="Home Turf to Bay-Wide"
+    text="We start where we know — Pleasanton, Dublin, Livermore — then grow. Phase 2 takes us to Oakland, Berkeley, San Jose, and Half Moon Bay. Phase 3 is the full Bay: SF, Marin, and everywhere in between."
+    mediaPosition="right"
+    image={{
+      src: '/images/bay-area-map.jpg',
+      alt: 'Bay Area show circuit map',
+    }}
+    cta={{ text: 'See the Circuit', href: '/shows' }}
+  />
+
+  <TextAndMediaSection
+    title="15+ Musicians, One Collective"
+    text="Bass, guitar, drums, keys, saxophone, trumpet, vocals. Every show is a custom configuration — we pick the lineup that fits the venue and the vibe."
+    mediaPosition="left"
+    image={{
+      src: '/images/roster-group.jpg',
+      alt: 'The Bay Collective roster',
+    }}
+    cta={{ text: 'Meet the Roster', href: '/roster' }}
+  />
+
+  <BlogPostsSection
+    title="From the Collective"
+    posts={posts}
+  />
+
+  <GetStartedSection
+    title="Want us at your venue?"
+    text="Restaurants, downtown spots, community events — we configure to your space and handle everything. Reach out and let's make it happen."
+    primaryCta={{ text: 'Book a Show', href: '/contact' }}
+    secondaryCta={{ text: 'Follow on Instagram', href: 'https://instagram.com' }}
+  />
+</Layout>

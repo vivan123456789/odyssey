@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Page.astro';
+import HeroSection from '../components/sections/heros/HeroSection.astro';
+import TextSection from '../components/sections/TextSection.astro';
+import FeatureCardsSection from '../components/sections/FeatureCardsSection.astro';
+import GetStartedSection from '../components/sections/GetStartedSection.astro';
+
+const seo = {
+  title: 'Shows & The Circuit — Bay Collective',
+  description:
+    'Bay Collective plays 2–4 live shows per week across the Bay Area — Pleasanton, Dublin, Livermore, Oakland, Berkeley, SF, and more.',
+};
+---
+
+<Layout seo={seo}>
+  <HeroSection
+    tagline="The Circuit"
+    title="From Pleasanton to the Bay."
+    text="We're building a live music circuit from the ground up — starting on home turf and expanding outward. 2–4 shows per week, every week."
+  />
+
+  <FeatureCardsSection
+    title="Three phases of expansion"
+    cards={[
+      {
+        title: 'Phase 1 — Home Turf',
+        text: 'Pleasanton, Dublin, Livermore. Restaurants, Main Street venues, downtown locations. This is where we learned the model and built the system.',
+        icon: 'ic:round-home',
+      },
+      {
+        title: 'Phase 2 — East Bay & Peninsula',
+        text: 'Oakland, Berkeley, San Jose, Half Moon Bay. Bigger venues, bigger audiences, same commitment to giving back at every show.',
+        icon: 'ic:round-map',
+      },
+      {
+        title: 'Phase 3 — Full Bay Circuit',
+        text: 'San Francisco, Marin, and every high-foot-traffic spot in between. The goal: a sustainable, week-over-week live music presence across the Bay.',
+        icon: 'ic:round-star',
+      },
+    ]}
+  />
+
+  <TextSection>
+    <h2>What kinds of venues do we play?</h2>
+    <p>
+      Anywhere with people. Restaurants are the backbone — dinner service background music that
+      actually has texture and soul. Downtown plazas and pedestrian corridors where foot traffic
+      is the audience. Community events, markets, and any venue where live music adds something
+      real to the experience.
+    </p>
+    <p>
+      We scout in person, reach out by email, and work out arrangements that make sense for the
+      venue — whether that's a door split, a flat booking fee, a tip-based model, or something else.
+    </p>
+
+    <h2>How often do we play?</h2>
+    <p>
+      The target is 2–4 shows per week. We're building toward consistency — the same way a touring
+      act builds a circuit, we're building a local one. Regulars at a restaurant. Recurring spots
+      at a plaza. A schedule that venues and audiences can count on.
+    </p>
+
+    <h2>Upcoming shows</h2>
+    <p>
+      Follow us on Instagram for the latest show announcements. We're booking through summer and
+      into fall — reach out if you want us at your venue.
+    </p>
+  </TextSection>
+
+  <GetStartedSection
+    title="Have a venue in mind?"
+    text="We're actively booking across the Bay Area. Reach out and let's make it happen."
+    primaryCta={{ text: 'Book a Show', href: '/contact' }}
+    secondaryCta={{ text: 'Follow on Instagram', href: 'https://instagram.com' }}
+  />
+</Layout>

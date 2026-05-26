@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Page.astro';
+import HeroSection from '../components/sections/heros/HeroSection.astro';
+
+const seo = {
+  title: 'Thanks! — Bay Collective',
+  description: 'Your booking inquiry has been received.',
+};
+---
+
+<Layout seo={seo}>
+  <HeroSection
+    tagline="Message Received"
+    title="We'll be in touch."
+    text="Thanks for reaching out. Someone from our team will get back to you within 48 hours. In the meantime, follow us on Instagram for show updates."
+  />
+</Layout>

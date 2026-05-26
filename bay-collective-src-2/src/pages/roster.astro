@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Page.astro';
+import HeroSection from '../components/sections/heros/HeroSection.astro';
+import TextSection from '../components/sections/TextSection.astro';
+import GetStartedSection from '../components/sections/GetStartedSection.astro';
+
+const seo = {
+  title: 'Roster — Bay Collective',
+  description:
+    'Meet the 15+ musicians of Bay Collective — bass, guitar, drums, keys, sax, trumpet, and vocals.',
+};
+
+const instruments = [
+  {
+    name: 'Bass',
+    players: ['Pranav D.', 'Vivek Matam', 'Aga'],
+  },
+  {
+    name: 'Guitar',
+    players: ['Zach', 'Daniel', 'Ayaan', 'Raunak', 'Rishab'],
+  },
+  {
+    name: 'Drums',
+    players: ['Joon', 'Ayaan', 'Raunak', 'Tanay', 'Pranav S.'],
+  },
+  {
+    name: 'Vocals',
+    players: ['Rishab', 'Shashank', 'Vinnakota', 'Akshay', 'Ayaan'],
+  },
+  {
+    name: 'Keys',
+    players: ['Aga', 'Ayaan'],
+  },
+  {
+    name: 'Saxophone',
+    players: ['Rohan', 'Zafir', 'Sid', 'Meng'],
+  },
+  {
+    name: 'Trumpet',
+    players: ['Aga'],
+  },
+];
+---
+
+<Layout seo={seo}>
+  <HeroSection
+    tagline="The Players"
+    title="15+ musicians, one collective."
+    text="We mix and match for every show — a tight acoustic trio for a restaurant dinner service or a full 8-piece for a plaza stage. The lineup always fits the venue."
+  />
+
+  <section style="padding: 4rem 2rem; max-width: 900px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
+      {instruments.map((section) => (
+        <div style="border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
+          <div style="background: #111827; color: white; padding: 0.75rem 1.25rem; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase;">
+            {section.name}
+          </div>
+          <ul style="list-style: none; padding: 1rem 1.25rem; margin: 0;">
+            {section.players.map((player) => (
+              <li style="padding: 0.3rem 0; font-size: 0.95rem; color: #374151; border-bottom: 1px solid #f3f4f6;">
+                {player}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <TextSection narrow>
+    <h2>Flexible configurations</h2>
+    <p>
+      Every venue is different. A dinner restaurant wants something atmospheric and unobtrusive.
+      A downtown plaza wants energy and volume. We build the lineup to match — everything from
+      a bass-guitar-drums trio to a full band with horns and keys.
+    </p>
+    <p>
+      When you book us, we talk through the space and the vibe and figure out the right configuration together.
+    </p>
+  </TextSection>
+
+  <GetStartedSection
+    title="Ready to book?"
+    text="Tell us about your venue and we'll put together the right lineup."
+    primaryCta={{ text: 'Book a Show', href: '/contact' }}
+  />
+</Layout>

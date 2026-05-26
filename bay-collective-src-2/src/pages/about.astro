@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Page.astro';
+import HeroSection from '../components/sections/heros/HeroSection.astro';
+import TextSection from '../components/sections/TextSection.astro';
+import FeatureCardsSection from '../components/sections/FeatureCardsSection.astro';
+import GetStartedSection from '../components/sections/GetStartedSection.astro';
+
+const seo = {
+  title: 'About — Bay Collective',
+  description:
+    'Who we are, why we play, and how we give back. Bay Collective is a live music crew from Pleasanton, CA building a Bay Area show circuit.',
+};
+---
+
+<Layout seo={seo}>
+  <HeroSection
+    tagline="About Us"
+    title="Real music, real venues, real impact."
+    text="We're a crew of Bay Area musicians — students and friends — who decided to stop just playing in garages and start playing for people. The Bay Area has too many good venues and not enough live music filling them."
+  />
+
+  <TextSection>
+    <h2>How it started</h2>
+    <p>
+      Bay Collective started with a simple idea: take our instruments out of rehearsal rooms and into
+      the community. Restaurants, downtown plazas, waterfront spots, anywhere with foot traffic and
+      an outlet. Real shows for real people, with a real reason behind each one.
+    </p>
+    <p>
+      We handle everything in-house — outreach to venues, logistics, promotion, finances, and legal
+      compliance. No middlemen, no label overhead. The money goes where it's supposed to go: into
+      the show, and into the cause.
+    </p>
+
+    <h2>The give-back model</h2>
+    <p>
+      Every show donates a percentage of proceeds to charity. We track it, document it, and report
+      it. Transparent finances, proper statements and invoices, full legal compliance — we take
+      this part seriously.
+    </p>
+
+    <h2>The circuit</h2>
+    <p>
+      We're building a Bay Area live music circuit from the ground up. Phase 1 is home turf —
+      Pleasanton, Dublin, Livermore. Phase 2 expands to Oakland, Berkeley, San Jose, and
+      Half Moon Bay. Phase 3 is the full Bay: San Francisco, Marin, and beyond.
+    </p>
+    <p>
+      We're doing 2–4 shows per week and growing. If you have a venue, we want to talk.
+    </p>
+  </TextSection>
+
+  <FeatureCardsSection
+    title="How we operate"
+    cards={[
+      {
+        title: 'Outreach & Marketing',
+        text: 'Physical posters, flyers, and business cards in the field. Online presence via Instagram and email. We use every channel.',
+        icon: 'ic:round-campaign',
+      },
+      {
+        title: 'Venue Scouting',
+        text: 'In-person scouting combined with email and online outreach. We find venues that fit — restaurants, downtown spots, anywhere with foot traffic.',
+        icon: 'ic:round-location-on',
+      },
+      {
+        title: 'Finances & Compliance',
+        text: 'Spreadsheets, statements, and invoices. We track every dollar in and out, ensure legal compliance, and document every charitable donation.',
+        icon: 'ic:round-account-balance',
+      },
+      {
+        title: 'Operations',
+        text: 'Managed by Vivan and Abhee — logistics, scheduling, communication, and growth. Built to scale from 2–4 shows a week upward.',
+        icon: 'ic:round-settings',
+      },
+    ]}
+  />
+
+  <GetStartedSection
+    title="Book us for your venue."
+    text="We configure to your space — acoustic trio, full band, or anything in between. Reach out and let's figure it out."
+    primaryCta={{ text: 'Contact Us', href: '/contact' }}
+    secondaryCta={{ text: 'See the Roster', href: '/roster' }}
+  />
+</Layout>
