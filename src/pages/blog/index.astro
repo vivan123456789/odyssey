@@ -27,18 +27,18 @@ const posts = await Astro.glob('./posts/*.mdx').then(posts =>
 );
 
 const seo = {
-	title: 'Blog | Astro Odyssey Theme',
-	description: 'Astro Odyssey Theme Blog Page',
+	title: 'Blog | [summer larp]',
+	description: '[summer larp] Blog — updates on shows, charity partners, booking info, and news from the collective.',
 };
 ---
 
 <Layout {seo}>
 	<Container>
 		<TextCardSection>
-			<h1>Odyssey Blog</h1>
+			<h1>[summer larp] Blog</h1>
 			<p>
-				View our blog to stay up to date on the latest news about our business.
-				Want to be the first to hear about a new blog post? Join our newsletter!
+				Updates on shows, charity partners, booking info, and news from the collective.
+				Follow us on Instagram for real-time updates, or subscribe to stay in the loop.
 			</p>
 			<NewsletterForm />
 		</TextCardSection>

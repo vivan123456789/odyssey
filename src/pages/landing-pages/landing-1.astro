@@ -5,7 +5,6 @@ import {
 	Button,
 	CustomerQuoteSection,
 	ThreeColumnTextSection,
-	YouTubeEmbedSection,
 	StickyTextImageSection,
 	CtaCardSection,
 } from '@components/odyssey-theme';
@@ -13,25 +12,25 @@ import Layout from '../../layouts/Page.astro';
 import TextAndImageHero from '../../components/sections/heros/TextAndImageHero.astro';
 
 const seo = {
-	title: 'Landing Page #1 | Astro Odyssey Theme',
-	description: 'Landing Page #1 | Astro Odyssey Theme',
+	title: 'Book [summer larp] | Bay Area Music Collective',
+	description: 'Hire [summer larp] for your restaurant, event, or community space. A Bay Area music collective playing for a cause.',
 };
 ---
 
 <AnnouncementBar
-	text="Read Our Latest Blog Post"
+	text="Read about why we pick niche charities"
 	href="/blog/posts/remote-work-mental-health/"
 	slot="announcement-bar"
 />
 <Layout {seo}>
 	<TextAndImageHero reversed>
 		<div slot="text-container">
-			<h1>Don't Reinvent the Wheel</h1>
-			<p>Use Odyssey Theme to jumpstart your company's marketing website.</p>
+			<h1>Live Music. Real Impact.</h1>
+			<p>Book [summer larp] for your venue or event — a rotating Bay Area collective that plays great music and raises funds for high-impact causes.</p>
 		</div>
 		<div slot="btns-container">
-			<Button href="/theme/get-started" customIcon
-				>Get Started <Fragment slot="icon">
+			<Button href="/company/contact" customIcon
+				>Send a Booking Inquiry <Fragment slot="icon">
 					<Icon name="ic:baseline-chevron-right" />
 				</Fragment></Button
 			>
@@ -39,82 +38,61 @@ const seo = {
 		<picture slot="image-container">
 			<img
 				src="/assets/images/landing-1/landing-hero-1.jpg"
-				alt="Astro Odyssee"
+				alt="[summer larp] performing live"
 				id="home-hero-image"
 			/>
 		</picture>
 	</TextAndImageHero>
 
 	<CustomerQuoteSection
-		quoteText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, vero nobis? Voluptas assumenda, voluptatibus commodi qui ducimus delectus praesentium maiores, impedit iure labore ratione, ea facilis numquam doloremque aperiam aspernatur."
-		customerName="Happy Customer"
+		quoteText="The energy was incredible — they brought the whole room to life. And knowing the proceeds went to a great cause made it even better."
+		customerName="Venue Partner, Dublin CA"
 	/>
 
 	<ThreeColumnTextSection>
 		<div slot="column-1-body">
-			<h2>Why?</h2>
+			<h2>Flexible Setup</h2>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
-				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
-				consequatur explicabo ut quibusdam fugiat corporis, dignissimos tenetur,
-				mollitia cumque. Velit.
+				From a tight trio to a full 10+ piece ensemble with horns — we scale to your venue and your vision. Tell us what you need and we'll make it work.
 			</p>
 		</div>
-		<Button slot="column-1-cta">Learn More</Button>
+		<Button slot="column-1-cta" href="/roster">See the Roster</Button>
 		<div slot="column-2-body">
-			<h2>How?</h2>
+			<h2>Built for Foot Traffic</h2>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
-				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
-				consequatur explicabo ut quibusdam fugiat corporis, dignissimos tenetur,
-				mollitia cumque. Velit.
+				We target restaurants, farmer's markets, downtown spots, and community hubs. Places where live music can reach people who weren't expecting it.
 			</p>
 		</div>
-		<Button slot="column-2-cta" outlined>Learn More</Button>
+		<Button slot="column-2-cta" href="/shows" outlined>Show Info</Button>
 		<div slot="column-3-body">
-			<h2>What?</h2>
+			<h2>Giving Baked In</h2>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
-				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
-				consequatur explicabo ut quibusdam fugiat corporis, dignissimos tenetur,
-				mollitia cumque. Velit.
+				Every show includes a charitable component. We handle the charity selection and communications — you get a great show with a story your customers will remember.
 			</p>
 		</div>
-		<Button slot="column-3-cta">Learn More</Button>
+		<Button slot="column-3-cta" href="/blog/posts/remote-work-mental-health">Our Mission</Button>
 	</ThreeColumnTextSection>
-
-	<YouTubeEmbedSection url="https://www.youtube.com/watch?v=cbYr75_R15M" rounded
-	/>
 
 	<StickyTextImageSection>
 		<div slot="text-container">
-			<h2>Features</h2>
-			<h3>SEO</h3>
+			<h2>Why [summer larp]?</h2>
+			<h3>A Rotating Roster</h3>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
-				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
-				consequatur explicabo ut quibusdam fugiat corporis, dignissimos tenetur,
-				mollitia cumque. Velit.
+				Over 20 musicians spanning bass, guitar, drums, vocals, keys, and a full horn section. Each show is assembled for the occasion.
 			</p>
-			<h3>Responsive</h3>
+			<h3>Bay Area Coverage</h3>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
-				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
-				consequatur explicabo ut quibusdam fugiat corporis, dignissimos tenetur,
-				mollitia cumque. Velit.
+				Home base in Pleasanton/Dublin/Livermore, with reach across SF, Oakland, Berkeley, San Jose, Marin, and Half Moon Bay.
 			</p>
-			<h3>Themeable</h3>
+			<h3>2–4 Shows Per Week</h3>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolorem
-				tempore odio! Nemo consectetur ipsa aperiam similique maxime maiores
-				consequatur explicabo ut quibusdam fugiat corporis, dignissimos tenetur,
-				mollitia cumque. Velit.
+				Available throughout the summer. Reach out early to lock in your preferred dates.
 			</p>
 		</div>
 		<picture slot="image-container">
 			<img
 				src="/assets/images/landing-1/landing-sticky.jpg"
-				alt="Astro Odyssey"
+				alt="[summer larp] collective"
 				loading="lazy"
 			/>
 		</picture>
@@ -124,13 +102,12 @@ const seo = {
 		background="var(--theme-surface-2)"
 		color="var(--theme-on-surface-2)"
 	>
-		<h2>Start Your Website Today</h2>
+		<h2>Ready to book?</h2>
 		<p>
-			It only takes a couple clicks to have a new, modern website for your
-			business or startup.
+			Fill out a booking inquiry and we'll get back to you within a couple days to discuss dates, configuration, and logistics.
 		</p>
-		<Button href="/theme/get-started" customIcon
-			>Get Started <Fragment slot="icon">
+		<Button href="/company/contact" customIcon
+			>Send an Inquiry <Fragment slot="icon">
 				<Icon name="ic:baseline-chevron-right" />
 			</Fragment></Button
 		>
