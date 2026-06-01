@@ -4,8 +4,8 @@ import Layout from '../../layouts/Page.astro';
 import { Container } from '@components/odyssey-theme';
 
 const seo = {
-	title: 'Contact | Astro Odyssey Theme',
-	description: 'Contact Page',
+	title: 'Booking Inquiry | [summer larp]',
+	description: 'Get in touch with [summer larp] to book a show at your venue or event across the Bay Area.',
 };
 ---
 
@@ -13,21 +13,24 @@ const seo = {
 	<Container>
 		<section class="contact-hero__section">
 			<div class="contact-hero__text-section">
-				<h1>Contact Us</h1>
+				<h1>Book [summer larp]</h1>
 				<p>
-					This is a contact form using Odyssey's form components to create a
-					contact form component. The contact form is setup to use Netlify's
-					form detection; however, it can easily be translated to other popular
-					form services such as Formspree, Getform, Formspark, etc.
+					Interested in having us play at your restaurant, event, market, or community space? Fill out the form and we'll get back to you within a couple of days to discuss availability, set size, and logistics.
 				</p>
-				<div>
+				<p>
+					We're available <strong>2–4 shows per week</strong> throughout the summer, serving the full Bay Area — SF, Oakland, Berkeley, San Jose, Marin, and Half Moon Bay.
+				</p>
+				<div class="contact-links">
 					<p>
-						<em><a href="tel:8008675309">(800) 867-5309</a></em> • <em
-							><a href="mailto:hello@odysseytheme.com">hello@ourcompany.com</a
-							></em
-						>
+						<strong>Email:</strong> <a href="mailto:summerlarp@gmail.com">summerlarp@gmail.com</a>
+					</p>
+					<p>
+						<strong>Instagram:</strong> <a href="https://instagram.com/summerlarp" target="_blank" rel="noopener noreferrer">@summerlarp</a> <!-- Update with real handle -->
 					</p>
 				</div>
+				<p class="contact-note">
+					For general questions, DMs on Instagram also work. We check regularly.
+				</p>
 			</div>
 			<div class="col-2__container">
 				<ContactForm />
@@ -51,6 +54,20 @@ const seo = {
 		justify-content: center;
 		background-color: var(--theme-surface-1);
 		border-radius: var(--theme-shape-radius);
+	}
+	.contact-links {
+		margin: 1rem 0;
+		padding: 1rem;
+		background: var(--theme-surface-2);
+		border-radius: var(--theme-shape-radius);
+	}
+	.contact-links p {
+		margin: 0.4rem 0;
+	}
+	.contact-note {
+		font-size: var(--font-size-sm);
+		opacity: 0.75;
+		margin-top: 0.5rem;
 	}
 	.col-2__container {
 		display: flex;

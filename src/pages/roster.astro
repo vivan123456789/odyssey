@@ -1,0 +1,155 @@
+---
+import { Container, Button } from '@components/odyssey-theme';
+import Layout from '../layouts/Page.astro';
+
+const seo = {
+  title: 'Roster | [summer larp]',
+  description: 'Meet the musicians of [summer larp] — a rotating Bay Area collective spanning bass, guitar, drums, vocals, keys, and horn section.',
+};
+
+const roster = [
+  {
+    section: 'Bass',
+    icon: '🎸',
+    members: ['Pranav D', 'Vivek Matam', 'Aga'],
+  },
+  {
+    section: 'Guitar',
+    icon: '🎵',
+    members: ['Zach', 'Daniel', 'Ayaan', 'Raunak', 'Rishab'],
+  },
+  {
+    section: 'Drums',
+    icon: '🥁',
+    members: ['Joon', 'Ayaan', 'Raunak', 'Tanay', 'Pranav S'],
+  },
+  {
+    section: 'Vocals',
+    icon: '🎤',
+    members: ['Rishab', 'Shashank', 'Vinnakota', 'Akshay', 'Ayaan'],
+  },
+  {
+    section: 'Keys',
+    icon: '🎹',
+    members: ['Aga', 'Ayaan'],
+  },
+  {
+    section: 'Horn Section',
+    icon: '🎺',
+    members: ['Rohan (Sax)', 'Zafir (Sax)', 'Sid (Sax)', 'Meng (Sax)', 'Aga (Trumpet)'],
+  },
+];
+---
+
+<Layout {seo}>
+  <Container>
+    <section class="roster-hero">
+      <h1>The Roster</h1>
+      <p class="roster-subtitle">
+        [summer larp] is a collective, not a fixed band. Our roster spans over 20 musicians across the Bay Area — assembled show by show based on availability and venue needs.
+      </p>
+    </section>
+
+    <section class="roster-grid">
+      {roster.map((section) => (
+        <div class="roster-section-card">
+          <div class="roster-section-header">
+            <span class="roster-icon">{section.icon}</span>
+            <h2 class="roster-section-title">{section.section}</h2>
+          </div>
+          <ul class="roster-member-list">
+            {section.members.map((member) => (
+              <li class="roster-member">{member}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
+
+    <section class="roster-note">
+      <p>
+        Many collective members play multiple instruments and sections. Ayaan, for example, appears across guitar, drums, vocals, and keys. Shows are assembled from this roster based on size, venue, and set type — every configuration brings something different.
+      </p>
+      <div class="roster-cta">
+        <Button href="/company/contact">Get in Touch to Book</Button>
+      </div>
+    </section>
+  </Container>
+</Layout>
+
+<style>
+  .roster-hero {
+    margin: var(--section-margin) auto 3rem;
+    max-width: 42rem;
+  }
+  .roster-subtitle {
+    font-size: var(--font-size-lg);
+    opacity: 0.8;
+    margin-top: 1rem;
+  }
+  .roster-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--theme-grid-gap);
+    margin-bottom: 4rem;
+  }
+  .roster-section-card {
+    background: var(--theme-surface-1);
+    border-radius: var(--theme-shape-radius);
+    padding: 1.75rem;
+  }
+  .roster-section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .roster-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+  .roster-section-title {
+    margin: 0;
+    font-size: var(--font-size-md);
+  }
+  .roster-member-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .roster-member {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--theme-surface-2);
+    font-size: var(--font-size-sm);
+  }
+  .roster-member:last-child {
+    border-bottom: none;
+  }
+  .roster-note {
+    max-width: 42rem;
+    margin: 0 auto var(--section-margin);
+    background: var(--theme-surface-1);
+    padding: 2rem;
+    border-radius: var(--theme-shape-radius);
+  }
+  .roster-note p {
+    margin-top: 0;
+    opacity: 0.85;
+  }
+  .roster-cta {
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 900px) {
+    .roster-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .roster-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

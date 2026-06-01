@@ -1,38 +1,32 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { Container, Button } from '@components/odyssey-theme';
-import settings from '../../../config/settings.js';
-import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 ---
 
 <Container>
 	<section class="hero-section__section">
 		<div class="hero-section__text">
-				<h1>Welcome to Odyssey</h1>
+				<p class="hero-eyebrow">Pleasanton · Dublin · Livermore</p>
+				<h1>[summer larp]</h1>
 				<p>
-					A marketing website theme built with <a
-						href="https://astro.build"
-						target="_blank"
-						rel="noreferrer">Astro</a
-					> and carefully crafted for startups and businesses.
+					A Bay Area music collective on a summer gigging circuit — raising funds for niche, high-impact charitable causes through live performance.
 				</p>
 				<div class="hero-btns__container">
-					<Button href="/theme/get-started" customIcon
-						>Get Started
+					<Button href="/company/contact" customIcon
+						>Book Us
             <Fragment slot="icon">
               <Icon name="ic:baseline-chevron-right"/>
             </Fragment>
             </Button
 					>
-					<Button href="/theme/style-guide" unelevated>Style Guide</Button>
+					<Button href="/roster" unelevated>Meet the Crew</Button>
 				</div>
-        {settings.enableThemeSwitcher && <ThemeSwitcher client:only/>}
 		</div>
 		<div class="hero-section__image">
 				<picture>
 					<img
 						src="/assets/images/home/classic-hero.jpg"
-						alt="Astro Odyssey"
+						alt="[summer larp] performing live"
 						id="home-hero-image"
 					/>
 				</picture>
@@ -41,6 +35,13 @@ import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 </Container>
 
 <style>
+	.hero-eyebrow {
+		font-size: var(--font-size-sm);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		opacity: 0.7;
+		margin-bottom: 0.5rem;
+	}
 	.hero-section__section {
 		margin: var(--section-margin) auto;
 		min-height: clamp(90vh, 100vw, calc(100vh - var(--navbar-height)));
