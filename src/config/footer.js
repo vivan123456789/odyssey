@@ -20,10 +20,6 @@ export const footerLists = [
 				slug: '/',
 			},
 			{
-				title: 'Roster',
-				slug: '/roster',
-			},
-			{
 				title: 'Shows',
 				slug: '/shows',
 			},
@@ -43,10 +39,6 @@ export const footerLists = [
 			{
 				title: 'Book Us (Inquiry)',
 				slug: '/company/contact',
-			},
-			{
-				title: 'Internal Tools',
-				slug: '/company/legal',
 			},
 		],
 	},
