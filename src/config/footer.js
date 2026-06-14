@@ -1,13 +1,8 @@
 export const footerSocials = [
   {
     name: 'Instagram',
-    url: 'https://instagram.com/playingitforward', // placeholder — update with real handle
+    url: 'https://instagram.com/fhs.livemusic',
     icon: "mdi:instagram",
-  },
-  {
-    name: 'Youtube',
-    url: 'https://youtube.com/@playingitforward', // placeholder — update with real channel
-    icon: "mdi:youtube",
   },
 ]
 
@@ -22,6 +17,10 @@ export const footerLists = [
 			{
 				title: 'Shows',
 				slug: '/shows',
+			},
+			{
+				title: 'Videos',
+				slug: '/past-work',
 			},
 			{
 				title: 'Blog',

@@ -4,94 +4,47 @@ import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Page.astro';
 
 const seo = {
-  title: 'Past Work | [summer larp]',
-  description: 'Watch performances and highlights from [summer larp] shows across the Bay Area.',
+  title: 'Videos | Playing It Forward',
+  description: 'Watch performances from Playing It Forward on Instagram @fhs.livemusic',
 };
-
-const videoSections = [
-  {
-    title: 'Recent Performances',
-    videos: [
-      {
-        id: 'video-1',
-        videoUrl: '',
-        caption: 'Add your video URL and caption here',
-        title: 'Performance 1',
-      },
-      {
-        id: 'video-2',
-        videoUrl: '',
-        caption: 'Add your video URL and caption here',
-        title: 'Performance 2',
-      },
-      {
-        id: 'video-3',
-        videoUrl: '',
-        caption: 'Add your video URL and caption here',
-        title: 'Performance 3',
-      },
-    ],
-  },
-  {
-    title: 'Highlights & Clips',
-    videos: [
-      {
-        id: 'clip-1',
-        videoUrl: '',
-        caption: 'Add your video URL and caption here',
-        title: 'Highlight 1',
-      },
-      {
-        id: 'clip-2',
-        videoUrl: '',
-        caption: 'Add your video URL and caption here',
-        title: 'Highlight 2',
-      },
-    ],
-  },
-];
 ---
 
 <Layout {seo}>
   <Container>
     <section class="past-work-hero">
-      <h1>Past Work</h1>
+      <h1>Videos</h1>
       <p class="past-work-subtitle">
-        Explore videos and highlights from [summer larp] performances across the Bay Area.
+        Check out our performances and highlights on Instagram.
       </p>
     </section>
 
-    {videoSections.map((section) => (
-      <section class="video-section">
-        <h2>{section.title}</h2>
-        <div class="video-grid">
-          {section.videos.map((video) => (
-            <div class="video-card">
-              <div class="video-placeholder">
-                {video.videoUrl ? (
-                  <iframe
-                    src={video.videoUrl}
-                    title={video.title}
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                ) : (
-                  <div class="video-empty">
-                    <Icon name="ic:baseline-video-library" width={48} height={48} />
-                    <p>Video placeholder</p>
-                  </div>
-                )}
-              </div>
-              <div class="video-info">
-                <h3>{video.title}</h3>
-                <p class="video-caption">{video.caption}</p>
-              </div>
-            </div>
-          ))}
+    <section class="instagram-section">
+      <div class="instagram-content">
+        <div class="instagram-header">
+          <Icon name="mdi:instagram" width={48} height={48} />
+          <h2>@fhs.livemusic</h2>
         </div>
-      </section>
-    ))}
+        <p class="instagram-description">
+          Follow Playing It Forward on Instagram for the latest performance videos, clips, and updates from our shows across the Bay Area.
+        </p>
+        <Button href="https://instagram.com/fhs.livemusic" target="_blank" customIcon>
+          Follow on Instagram <Fragment slot="icon">
+            <Icon name="ic:baseline-chevron-right" />
+          </Fragment>
+        </Button>
+      </div>
+
+      <div class="video-grid">
+        {[1, 2, 3, 4, 5, 6].map((num) => (
+          <div class="video-placeholder-card">
+            <div class="video-placeholder">
+              <Icon name="ic:baseline-video-library" width={64} height={64} />
+              <p>Video spot {num}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   </Container>
 
   <CtaCardSection
@@ -120,46 +73,55 @@ const videoSections = [
     margin-top: 1rem;
   }
 
-  .video-section {
+  .instagram-section {
     margin-bottom: var(--section-margin);
   }
 
-  .video-section h2 {
-    margin-bottom: 2rem;
+  .instagram-content {
+    background: var(--theme-surface-1);
+    padding: 3rem 2rem;
+    border-radius: var(--theme-shape-radius);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .instagram-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .instagram-header h2 {
+    margin: 0;
     font-size: var(--font-size-xl);
+  }
+
+  .instagram-description {
+    font-size: var(--font-size-md);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--theme-grid-gap);
   }
 
-  .video-card {
+  .video-placeholder-card {
     background: var(--theme-surface-1);
     border-radius: var(--theme-shape-radius);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
   }
 
   .video-placeholder {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 9 / 16;
     background: var(--theme-surface-2);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .video-placeholder iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  .video-empty {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,26 +131,22 @@ const videoSections = [
     opacity: 0.5;
   }
 
-  .video-info {
-    padding: 1.5rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .video-info h3 {
-    margin: 0 0 0.75rem 0;
-    font-size: var(--font-size-md);
-  }
-
-  .video-caption {
+  .video-placeholder p {
     margin: 0;
     font-size: var(--font-size-sm);
-    opacity: 0.75;
-    flex: 1;
   }
 
   @media (max-width: 768px) {
+    .video-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .instagram-content {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
     .video-grid {
       grid-template-columns: 1fr;
     }
