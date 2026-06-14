@@ -14,14 +14,14 @@ const selectOptions = [
 
 ---
 
-<form name="Booking Inquiry" method="POST" action="/contact-thank-you">
-  <FormInput type="text" label="Name" name="Name" placeholder="Your name" />
-  <FormInput type="email" label="Email" name="Email" placeholder="your@email.com" />
-  <FormInput type="text" label="Venue / Event Name" name="Venue" placeholder="e.g. The Vine Restaurant, Pleasanton Farmer's Market" />
-  <FormInput type="text" label="Preferred Dates / Timeframe" name="Dates" placeholder="e.g. July weekends, any Saturday in August" />
-  <FormSelect label="Venue Type / How Did You Hear About Us?" options={selectOptions} />
-  <FormTextarea label="Tell us about your event" name="Message" placeholder="Describe your space, expected audience size, set length, and anything else we should know..." />
-  <Button>Send Inquiry</Button>
+<form name="Booking Inquiry" method="POST" netlify>
+  <FormInput type="text" label="Name" name="name" placeholder="Your name" required />
+  <FormInput type="email" label="Email" name="email" placeholder="your@email.com" required />
+  <FormInput type="text" label="Venue / Event Name" name="venue" placeholder="e.g. The Vine Restaurant, Pleasanton Farmer's Market" required />
+  <FormInput type="text" label="Preferred Dates / Timeframe" name="dates" placeholder="e.g. July weekends, any Saturday in August" required />
+  <FormSelect label="Venue Type / How Did You Hear About Us?" name="venuetype" options={selectOptions} required />
+  <FormTextarea label="Tell us about your event" name="message" placeholder="Describe your space, expected audience size, set length, and anything else we should know..." required />
+  <Button type="submit">Send Inquiry</Button>
 </form>
 
 <style>
