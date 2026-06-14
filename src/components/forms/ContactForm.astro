@@ -14,14 +14,15 @@ const selectOptions = [
 
 ---
 
-<form name="Booking Inquiry" method="POST" netlify>
+<form id="booking-form">
   <FormInput type="text" label="Name" name="name" placeholder="Your name" required />
   <FormInput type="email" label="Email" name="email" placeholder="your@email.com" required />
   <FormInput type="text" label="Venue / Event Name" name="venue" placeholder="e.g. The Vine Restaurant, Pleasanton Farmer's Market" required />
   <FormInput type="text" label="Preferred Dates / Timeframe" name="dates" placeholder="e.g. July weekends, any Saturday in August" required />
   <FormSelect label="Venue Type / How Did You Hear About Us?" name="venuetype" options={selectOptions} required />
   <FormTextarea label="Tell us about your event" name="message" placeholder="Describe your space, expected audience size, set length, and anything else we should know..." required />
-  <Button type="submit">Send Inquiry</Button>
+  <div id="form-status" style="display:none;padding:0.75rem 1rem;border-radius:6px;font-size:0.9rem;"></div>
+  <Button type="submit" id="submit-btn">Send Inquiry</Button>
 </form>
 
 <style>
@@ -30,4 +31,73 @@ const selectOptions = [
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+  #form-status {
+    grid-column: 1 / -1;
+  }
 </style>
+
+<script>
+  const form = document.getElementById('booking-form') as HTMLFormElement;
+  const status = document.getElementById('form-status');
+  const btn = document.getElementById('submit-btn');
+
+  if (form && status && btn) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      btn.textContent = 'Sending...';
+      btn.style.opacity = '0.6';
+      btn.disabled = true;
+
+      try {
+        // Collect form data
+        const formData = new FormData(form);
+        const data = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          venue: formData.get('venue'),
+          dates: formData.get('dates'),
+          venuetype: formData.get('venuetype'),
+          message: formData.get('message'),
+        };
+
+        // Send to Formspree (free service that works with Vercel)
+        const response = await fetch('https://formspree.io/f/xyzbklkn', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            venue: data.venue,
+            dates: data.dates,
+            venuetype: data.venuetype,
+            message: data.message,
+          }),
+        });
+
+        if (response.ok) {
+          status.style.display = 'block';
+          status.style.background = '#d1fae5';
+          status.style.color = '#065f46';
+          status.textContent = "✓ Got it! We'll be in touch within 48 hours at playingitforward2026@gmail.com";
+          form.reset();
+          btn.textContent = 'Sent!';
+          btn.style.opacity = '0.6';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        status.style.display = 'block';
+        status.style.background = '#fee2e2';
+        status.style.color = '#991b1b';
+        status.textContent = 'Something went wrong. Please email us directly at playingitforward2026@gmail.com';
+        btn.textContent = 'Send Inquiry';
+        btn.style.opacity = '1';
+        btn.disabled = false;
+      }
+    });
+  }
+</script>
