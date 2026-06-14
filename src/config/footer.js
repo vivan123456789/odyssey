@@ -1,12 +1,12 @@
 export const footerSocials = [
   {
     name: 'Instagram',
-    url: 'https://instagram.com/summerlarp', // placeholder — update with real handle
+    url: 'https://instagram.com/playingitforward', // placeholder — update with real handle
     icon: "mdi:instagram",
   },
   {
     name: 'Youtube',
-    url: 'https://youtube.com/@summerlarp', // placeholder — update with real channel
+    url: 'https://youtube.com/@playingitforward', // placeholder — update with real channel
     icon: "mdi:youtube",
   },
 ]
