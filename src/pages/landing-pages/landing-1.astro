@@ -10,6 +10,7 @@ import {
 } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
 import TextAndImageHero from '../../components/sections/heros/TextAndImageHero.astro';
+import { Fragment } from 'astro';
 
 const seo = {
 	title: 'Book Playing It Forward | Bay Area Music Collective',
@@ -17,11 +18,6 @@ const seo = {
 };
 ---
 
-<AnnouncementBar
-	text="Read about why we pick niche charities"
-	href="/blog/posts/remote-work-mental-health/"
-	slot="announcement-bar"
-/>
 <Layout {seo}>
 	<TextAndImageHero reversed>
 		<div slot="text-container">
@@ -38,7 +34,7 @@ const seo = {
 		<picture slot="image-container">
 			<img
 				src="/assets/images/landing-1/landing-hero-1.jpg"
-				alt="[summer larp] performing live"
+				alt="Playing It Forward performing live"
 				id="home-hero-image"
 			/>
 		</picture>
@@ -70,12 +66,12 @@ const seo = {
 				Every show includes a charitable component. We handle the charity selection and communications — you get a great show with a story your customers will remember.
 			</p>
 		</div>
-		<Button slot="column-3-cta" href="/blog/posts/remote-work-mental-health">Our Mission</Button>
+		<Button slot="column-3-cta" href="/company/about">Our Mission</Button>
 	</ThreeColumnTextSection>
 
 	<StickyTextImageSection>
 		<div slot="text-container">
-			<h2>Why [summer larp]?</h2>
+			<h2>Why Playing It Forward?</h2>
 			<h3>A Rotating Roster</h3>
 			<p>
 				Over 20 musicians spanning bass, guitar, drums, vocals, keys, and a full horn section. Each show is assembled for the occasion.
@@ -92,7 +88,7 @@ const seo = {
 		<picture slot="image-container">
 			<img
 				src="/assets/images/landing-1/landing-sticky.jpg"
-				alt="[summer larp] collective"
+				alt="Playing It Forward collective"
 				loading="lazy"
 			/>
 		</picture>
